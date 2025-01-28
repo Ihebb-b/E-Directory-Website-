@@ -1,0 +1,51 @@
+.hero-text {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0;
+    color: #fff;
+    opacity: 0; 
+    animation: fadeInScale 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; 
+  }
+  
+  @keyframes fadeInScale {
+    0% {
+      opacity: 0;
+      transform: translateY(20px) scale(0.9);
+    }
+    50% {
+      opacity: 0.5;
+      transform: translateY(10px) scale(1); 
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1); 
+    }
+  }
+
+  /* Responsive Font Sizes */
+@media (max-width: 1200px) {
+    .hero-text {
+        font-size: 40px; /* Adjust for larger tablets */
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-text {
+        font-size: 32px; /* Adjust for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-text {
+        font-size: 28px; /* Adjust for small tablets */
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-text {
+        font-size: 24px; /* Adjust for mobile devices */
+    }
+}
+
+
+
