@@ -8,6 +8,8 @@ const { notFound, errorHandler } = require('./middelware/errorMiddelware'); // C
 const connectDB = require('./config/db');
 const cookieParser = require('cookie-parser');
 const path = require('path');
+const https=require("https")
+const fs=require("fs")
 
 require('dotenv').config();
 
@@ -22,7 +24,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Connect Database
-connectDB();
+//connectDB();
 
 // Routes
 app.use('/api/user', userRoutes);
@@ -48,10 +50,28 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
 
 // Start Server
-app.listen(PORT, () => {
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT} ✔`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT} ✔`);
+// });
 
 app.use((req, res) => {
   res.status(404).json({ message: `Route not found: ${req.originalUrl}` });
 });
+
+connectDB().then(()=>{
+  if (process.env.NODE_ENV === 'production') {
+    const sslOptions = {
+      key: fs.readFileSync(process.env.SSL_KEY),
+      cert: fs.readFileSync(process.env.SSL_CERTIFICATE),
+    }
+
+
+    https.createServer(sslOptions, app).listen(PORT, () => {
+      console.log(`HTTPS Server is ready ✔`)
+    })
+  } else {
+    app.listen(PORT, () => {
+      console.log(`HTTP Server is ready ✔`)
+    })
+  }
+})
