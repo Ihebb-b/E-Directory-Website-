@@ -159,18 +159,36 @@ function AddRecipe() {
                                             onChange={(e) => handleIngredientChange(index, e.target.value)}
                                             required
                                         />
-                                        <button
+                                        {/* <button
                                             type="button"
                                             className="btn btn-danger"
                                             onClick={() => handleRemoveIngredient(index)}
                                         >
                                             Remove
-                                        </button>
+                                        </button> */}
+
+                                        <i
+                                            className="icon-trash text-danger"
+                                            style={{ cursor: "pointer" }}
+                                            title="Remove Plate"
+                                            onClick={() => handleRemoveIngredient(index)}
+                                        ></i>
+
+
                                     </div>
                                 ))}
-                                <button type="button" className="btn btn-primary mt-3" onClick={handleAddIngredient}>
+                                {/* <button type="button" className="btn btn-primary mt-3" onClick={handleAddIngredient}>
                                     Add Ingredient
-                                </button>
+                                </button> */}
+                                <i
+                                    className="icon-plus-circle text-primary"
+                                    style={{
+                                        cursor: "pointer",
+                                        fontSize: "2rem",
+                                        marginBottom: "10px",
+                                    }}
+                                    onClick={handleAddIngredient}
+                                ></i>
 
                                 <h5>Instructions</h5>
                                 {recipeInstructions.map((instruction, index) => (
@@ -183,18 +201,35 @@ function AddRecipe() {
                                             onChange={(e) => handleInstructionChange(index, e.target.value)}
                                             required
                                         />
-                                        <button
+                                        {/* <button
                                             type="button"
                                             className="btn btn-danger"
                                             onClick={() => handleRemoveInstruction(index)}
                                         >
                                             Remove
-                                        </button>
+
+                                        </button> */}
+                                        <i
+                                            className="icon-trash text-danger"
+                                            style={{ cursor: "pointer" }}
+                                            title="Remove Plate"
+                                            onClick={() => handleRemoveInstruction(index)}
+                                        ></i>
                                     </div>
                                 ))}
-                                <button type="button" className="btn btn-primary mt-3" onClick={handleAddInstruction}>
+                                {/* <button type="button" className="btn btn-primary mt-3" onClick={handleAddInstruction}>
                                     Add Instruction
-                                </button>
+                                </button> */}
+
+                                <i
+                                    className="icon-plus-circle text-primary"
+                                    style={{
+                                        cursor: "pointer",
+                                        fontSize: "2rem",
+                                        marginBottom: "10px",
+                                    }}
+                                    onClick={handleAddInstruction}
+                                ></i>
 
                                 <div className="mt-4">
                                     <button type="submit" className="btn btn-primary me-2" disabled={isLoading}>

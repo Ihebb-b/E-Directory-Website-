@@ -10,6 +10,8 @@ function RestaurantDetail() {
 
     const navigate = useNavigate();
 
+    const backgroundImagere = "url('homepages/restaurant/images/background.jpg')"; 
+
     useEffect(() => {
         const elements = document.querySelectorAll('[data-animate]');
         const observer = new IntersectionObserver(
@@ -548,8 +550,12 @@ function RestaurantDetail() {
                     </div>
                 </section> */}
 
-                <section id="section-recipes" className="p-t-150 p-b-150">
-                    <div className="container">
+                <section id="section-recipes" className="p-t-150 p-b-150" 
+                style={{ 
+                    backgroundImage: backgroundImagere, 
+                    backgroundSize: 'cover', 
+                    backgroundPosition: 'center'}}>
+                    <div className="container" >
                         <div className="d-flex justify-content-between align-items-center mt-3" style={{ padding: '0 15px' }}>
                             <div className="heading-text" style={{ flex: '1' }}>
                                 <h2 style={{ margin: 0 }}>Our Recipes</h2>
