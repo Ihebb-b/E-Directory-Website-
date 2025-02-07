@@ -573,7 +573,7 @@ function RestaurantDetail() {
                                 <p className="col-12 text-center">No recipes found for this restaurant.</p>
                             ) : (
                                 recipes?.map((recipe) => (
-                                    <div className="col-lg-3 col-md-4 col-sm-6 mb-4" key={recipe._id}>
+                                    <div className="col-lg-4 col-md-4 col-sm-6 mb-4" key={recipe._id}>
                                         <div className="room card shadow position-relative"
                                             style={{
                                                 backgroundColor: "#FFF6F4",

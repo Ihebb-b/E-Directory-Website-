@@ -71,30 +71,30 @@ function MenusList() {
             backgroundPosition: "50% 70%",
             backgroundSize: "cover", backgroundRepeat: "no-repeat"
           }}>
-            <div style={{
-        position: "absolute", // Position the overlay absolutely
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundColor: "rgba(0, 0, 0, 0.5)", // Dark overlay with 50% opacity
-        zIndex: 1 // Ensure the overlay is above the background image
-    }} />
+          <div style={{
+            position: "absolute", // Position the overlay absolutely
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.5)", // Dark overlay with 50% opacity
+            zIndex: 1 // Ensure the overlay is above the background image
+          }} />
 
           {/* <div className="bg-overlay"></div> */}
           <div className="container">
             <div className="page-title"
-             style={{
-              position: "relative", // Position content above the overlay
-              zIndex: 2 // Ensure content is above the overlay
-          }}>
+              style={{
+                position: "relative", // Position content above the overlay
+                zIndex: 2 // Ensure content is above the overlay
+              }}>
               <h1 className="text-uppercase text-medium">MENUS</h1>
               <span>Explore our wonderfull, healthy and, mediterranean menus !</span>
             </div>
           </div>
         </section>
 
-      
+
 
 
 
@@ -132,15 +132,15 @@ function MenusList() {
                                 borderRadius: "8px", // Optional: Rounded corners
                                 margin: "0 auto", // Center the image
                               }}
-                              //src={`url('${menuImage}')`}
-                              //src={menu.image || "/homepages/restaurant/images/envt.jpg"}
-                              //src={`/homepages/restaurant/images/menumed${index % 4 + 1}.jpg`} // Cycle through static images
+                            //src={`url('${menuImage}')`}
+                            //src={menu.image || "/homepages/restaurant/images/envt.jpg"}
+                            //src={`/homepages/restaurant/images/menumed${index % 4 + 1}.jpg`} // Cycle through static images
                             />
                           </a>
                         </div>
                         <div className="post-item-description">
                           <h2>
-                          <NavLink to={`/getMenu/${menu?._id}`}>{menu.name}</NavLink>
+                            <NavLink to={`/getMenu/${menu?._id}`}>{menu.name}</NavLink>
                           </h2>
                           <p style={{ textAlign: "justify" }}>{menu.description}</p>
                           <NavLink
@@ -273,7 +273,7 @@ function MenusList() {
                           <input className="form-check-input" type="checkbox" name="wifi" id="wifi" />
                         </div>
                       </li>
-                     
+
                     </ul>
                   </div>
 
