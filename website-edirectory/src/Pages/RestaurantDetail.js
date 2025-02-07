@@ -41,8 +41,8 @@ function RestaurantDetail() {
     const { data: menuItems, isLoading: isMenuLoading, error: menuError } = useGetMenuByUserIdQuery(id);
     const { data: recipes, isLoadingRec, isErrorRec, errorRec, refetch: refetchRecipe } = useGetRecipessByIdQuery(id);
 
-    if (isRestaurantLoading) return <div>Loading restaurant details...</div>;
-    if (restaurantError) return <div>Error loading restaurant details.</div>;
+    // if (isRestaurantLoading) return <div>Loading restaurant details...</div>;
+    // if (restaurantError) return <div>Error loading restaurant details.</div>;
 
     
 

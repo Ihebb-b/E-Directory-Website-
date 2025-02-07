@@ -10,7 +10,7 @@ function RecipeDetail() {
     const { data: recipe, isLoading, error } = useGetRecipeByIdQuery(id);
 
     if (isLoading) return <div>Loading...</div>;
-    if (error) return <div>Error loading recipe details.</div>;
+  //  if (error) return <div>Error loading recipe details.</div>;
 
     return (
         <>
