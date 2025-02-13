@@ -33,21 +33,21 @@ export const recipeSlice = apiSlice.injectEndpoints({
 
         modifyRecipe: builder.mutation({
             query: ({ token, id, formData }) => ({
-                url: `${RECIPE_URL}/modifyRecipe/${id}`, // The backend endpoint for modifying a recipe
-                method: 'PUT', // Use PUT to update an existing recipe
-                body: formData, // The updated recipe data to be sent in the request body
+                url: `${RECIPE_URL}/modifyRecipe/${id}`, 
+                method: 'PUT', 
+                body: formData, 
                 headers: {
-                    Authorization: `Bearer ${token}`, // Ensure token is sent
+                    Authorization: `Bearer ${token}`,
                 },
             }),
         }),
 
         deleteRecipe: builder.mutation({
             query: ({ token, id }) => ({
-                url: `${RECIPE_URL}/deleteRecipe/${id}`, // The backend endpoint for deleting a menu
-                method: 'DELETE', // Use DELETE to remove the menu
+                url: `${RECIPE_URL}/deleteRecipe/${id}`, 
+                method: 'DELETE', 
                 headers: {
-                    Authorization: `Bearer ${token}`, // Ensure token is sent
+                    Authorization: `Bearer ${token}`, 
                 },
             }),
         }),
