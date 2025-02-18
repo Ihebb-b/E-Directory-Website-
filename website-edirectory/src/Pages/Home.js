@@ -11,6 +11,8 @@ import { useGetAllRestaurantsQuery, useGetCountriesQuery, useGetDietQuery } from
 import { useDispatch } from 'react-redux';
 import { useGetRecipeListQuery, useGetRecipesQuery } from '../slices/recipeSlice';
 
+//Another One
+
 
 
 export default function Home() {
