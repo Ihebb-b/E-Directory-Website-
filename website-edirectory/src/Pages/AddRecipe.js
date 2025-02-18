@@ -11,6 +11,8 @@ function AddRecipe() {
     const [recipeIngredients, setRecipeIngredients] = useState(['']);
     const [recipeInstructions, setRecipeInstructions] = useState(['']);
 
+
+    //Similar
     const navigate = useNavigate();
 
     const handleReturn = () => {
