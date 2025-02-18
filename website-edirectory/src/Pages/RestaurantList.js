@@ -273,7 +273,6 @@ function RestaurantList() {
                     id="page-title"
                     data-bg-parallax="homepages/restaurant/images/main-1.jpg"
                     style={{
-                        marginTop: "80px",
                         backgroundImage: "url('homepages/restaurant/images/main-1.jpg')",
                         backgroundPosition: "50% 70%",
                         backgroundSize: "cover",
@@ -288,7 +287,7 @@ function RestaurantList() {
                     </div>
                 </section>
 
-                <section>
+                <section className="no-padding-section">
                     <div className="border">
                         {isMapVisible && <RestaurantMap countries={countries} handleMapClick={handleMapClick} />}
                     </div>

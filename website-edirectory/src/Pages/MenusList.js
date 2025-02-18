@@ -64,8 +64,7 @@ function MenusList() {
         <Header2 />
 
         <section id="page-title" data-bg-parallax="homepages/restaurant/images/main-1.jpg"
-          style={{
-            marginTop: "80px",
+          style={{ 
             backgroundColor: "rgba(0, 0, 0, 0.5)",
             backgroundImage: "url('homepages/restaurant/images/menu1.jpg')",
             backgroundPosition: "50% 70%",

@@ -38,7 +38,7 @@ export default function Home() {
     };
 
 
-
+//Similair
 
 
     const navigate = useNavigate();

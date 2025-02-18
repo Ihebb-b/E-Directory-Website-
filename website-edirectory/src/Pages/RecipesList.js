@@ -50,7 +50,6 @@ function RecipesList() {
         <Header2 />
         <section id="page-title"
           style={{
-            marginTop: "80px",
             backgroundImage: "url('homepages/restaurant/images/recippee.jpg')",
             backgroundPosition: "50% 30%",
             backgroundSize: "cover", backgroundRepeat: "no-repeat",
