@@ -99,7 +99,8 @@ export default function Home() {
 
     // Get the last 4 menus
     const lastFourMenus = menus.slice(-4);
-
+    
+    //Similarly
 
     return (
 
