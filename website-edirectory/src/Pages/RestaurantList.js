@@ -345,7 +345,7 @@ function RestaurantList() {
                                                         <a href="#">
                                                             <img
                                                                 alt={restaurant.name}
-                                                                src={restaurant.image || "/homepages/restaurant/images/envt.jpg"}
+                                                                src={`https://restaurations.sqli-services.com/${restaurant.image}` || "/homepages/restaurant/images/envt.jpg"}
                                                                 onError={(e) => {
                                                                     e.target.src = "/homepages/restaurant/images/envt.jpg";
                                                                 }}
