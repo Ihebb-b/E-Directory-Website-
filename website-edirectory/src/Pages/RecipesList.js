@@ -196,7 +196,8 @@ function RecipesList() {
                           <h2>
                             <NavLink to={`/recipeDetail/${recipe?._id}`}>{recipe.name} </NavLink>
                           </h2>
-                          <p style={{ textAlign: "justify" }}>{recipe.ingredients}</p>
+                          <p style={{ textAlign: "justify" }}>{recipe.ingredients.join(", ")}
+                          </p>
                           <NavLink
                             to={`/recipeDetail/${recipe?._id}`} // Dynamically link to restaurant detail page
                             className="item-link"
