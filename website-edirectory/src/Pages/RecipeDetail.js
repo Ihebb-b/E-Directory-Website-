@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header2 from '../Components/Header2'
 import Footer2 from '../Components/Footer2'
 import { useGetRecipeByIdQuery } from '../slices/recipeSlice';
@@ -7,10 +7,24 @@ import { useParams } from 'react-router-dom';
 function RecipeDetail() {
 
     const { id } = useParams();
-    const { data: recipe, isLoading, error } = useGetRecipeByIdQuery(id);
+    // const { data: recipe, isLoading, error, refetch } = useGetRecipeByIdQuery(id);
+
+
+    const { data: recipe, isLoading, error, refetch } = useGetRecipeByIdQuery(id, {
+        skip: !id,
+        refetchOnMountOrArgChange: true,  // Add this line
+    });
+
+    useEffect(() => {
+        if (id) {
+            refetch(); // Explicitly re-fetch data when the component mounts or the ID changes
+        }
+    }, [id, refetch]);
 
     if (isLoading) return <div>Loading...</div>;
-  //  if (error) return <div>Error loading recipe details.</div>;
+    if (error) return <div>Error loading recipe details.</div>;
+
+    //  if (error) return <div>Error loading recipe details.</div>;
 
     return (
         <>
@@ -23,7 +37,7 @@ function RecipeDetail() {
                             backgroundImage: `url(${recipe?.image || '/homepages/restaurant/images/shakshouka.jpg'})`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
-                         
+
                         }}
                     >
 
@@ -48,9 +62,12 @@ function RecipeDetail() {
                         <br />
 
 
-                        <p>  Shakshuka is a flavorful and wholesome dish originating from North Africa and
+                        {/* <p>  Shakshuka is a flavorful and wholesome dish originating from North Africa and
                             popular across the Mediterranean. This recipe serves 4 and is perfect for
-                            breakfast, brunch, or even a light dinner.</p>
+                            breakfast, brunch, or even a light dinner.</p> */}
+
+                        <p>{recipe?.description || 'No description available.'}</p>
+
 
                         {/* <div class="ingredients-list m-t-60">
                             <h3 class="text-uppercase text-center">Ingredients</h3>
@@ -189,7 +206,7 @@ function RecipeDetail() {
 
 
 
-            <a id="scrollTop"><i classNameName="icon-chevron-up"></i><i classNameName="icon-chevron-up"></i></a>
+            <a id="scrollTop"><i className="icon-chevron-up"></i><i className="icon-chevron-up"></i></a>
 
 
 

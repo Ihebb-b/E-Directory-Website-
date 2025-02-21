@@ -116,19 +116,20 @@ const deleteRecipe = async (req, res) => {
   } 
 
   const getRecipeById = async (req, res) => {
-    const recipeId = req.params.id; // Get the menu ID from the request parameters
-  
-    // Find the menu by ID
-    const recipe = await Recipe.findById(recipeId);
-  
-    if (!recipe) {
-      return res.status(404).json({ error: "Menu not found" });
-    }
-  
-    // Return the found menu
-    res.status(200).json(recipe);
-  };
-
+    try {
+      const recipeId = req.params.id;
+      const recipe = await Recipe.findById(recipeId);
+      if (!recipe) {
+          return res.status(404).json({ error: "Recipe not found" }); // Fix typo: "Menu" → "Recipe"
+      }
+      res.status(200).json(recipe);
+  } catch (error) {
+      if (error.name === 'CastError') { // Handle invalid ID format
+          return res.status(400).json({ error: "Invalid recipe ID" });
+      }
+      res.status(500).json({ error: "Server error" });
+  }
+};
   const getAllRecipePagi = async (req, res) => {
     try {
       const { page = 1, limit = 5 } = req.query; // Default to page 1 and 5 items per page
