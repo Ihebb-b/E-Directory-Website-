@@ -1,3 +1,4 @@
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -22,9 +23,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
- // Ensure correct directory reference
-//app.use(express.static(path.join(__dirname, '/website-edirectory/build')));
-
 // Routes
 app.use('/api/user', userRoutes);
 
@@ -38,13 +36,6 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.get('/', (req, res) => {
   res.send('API is running...');
 });
-
-
-// The "catch-all" handler: for any request that doesn't
-// match one above, send back React's index.html file.
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'website-edirectory', 'build', 'index.html'));
-// });
 
 // Error Handler
 app.use(notFound);

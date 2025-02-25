@@ -5,6 +5,7 @@ import {
   BrowserRouter,
   Routes,
   Route,
+  Navigate,
   
 } from "react-router-dom";
 import Home from './Pages/Home';
@@ -24,14 +25,14 @@ import MenuDetail from './Pages/MenuDetail';
 import AddRecipe from './Pages/AddRecipe';
 import ModifyMenu from './Pages/ModifyMenu';
 import ModifyRecipe from './Pages/ModifyRecipe';
-
 function App() {
 
   return (
 
    <div className= "App">
     
-        <BrowserRouter  basename={document.baseURI.substring(document.baseURI.indexOf(window.location.origin) + window.location.origin.length, document.baseURI.lastIndexOf('/'))} >
+        <BrowserRouter   >
+        {/* basename={document.baseURI.substring(document.baseURI.indexOf(window.location.origin) + window.location.origin.length, document.baseURI.lastIndexOf('/'))} */}
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/rlist" element={<RestaurantList />} />
@@ -50,8 +51,8 @@ function App() {
                 <Route path="/addrecipe" element= { <AddRecipe/> } />
                 <Route path="/modifyMenu/:id" element= { <ModifyMenu/> } />
                 <Route path="/modifyRecipe/:id" element= { <ModifyRecipe/> } />
-
-
+                {/* navigate to home page if route does not exist and change url to home page use Redirect */}
+                <Route path="*" element={<Navigate to="/" replace />} />
                 
             </Routes>
         </BrowserRouter>

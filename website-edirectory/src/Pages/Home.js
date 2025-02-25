@@ -617,7 +617,7 @@ export default function Home() {
                                     <div className="room">
                                         <div className="room-image">
                                             <img
-                                                src={`https://restaurations.sqli-services.com/${restaurant.image}` || "/homepages/restaurant/images/envt.jpg"}
+                                                src={restaurant.image}
                                                 alt={restaurant.name}
                                                 className="img-fluid"
                                                 style={{
@@ -705,7 +705,7 @@ export default function Home() {
                                         <div className="room-image">
                                             <img
                                                 className="img-fluid"
-                                                src={`https://restaurations.sqli-services.com/${menu.image}`}
+                                                src={menu.image}
                                                 //src={menu.image}
                                                 alt={menu.name}
 
