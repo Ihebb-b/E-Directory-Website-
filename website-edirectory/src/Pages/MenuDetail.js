@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header2 from '../Components/Header2'
 import Footer2 from '../Components/Footer2'
 import { useParams } from 'react-router-dom';
@@ -31,13 +31,21 @@ function MenuDetail() {
     }, []);
 
 
-
-
-
-
     const { id } = useParams();
-    const { data: menu, isLoading: isMenuLoading, error: menuError } = useGetMenuByIdQuery(id);
+    
+    console.log("MenuDetail page loaded with ID:", id);
 
+    const { data: menu, isLoading: isMenuLoading, error: menuError, refetch } = useGetMenuByIdQuery(id);
+
+    console.log("MenuDetail loading:", isMenuLoading);
+    console.log("MenuDetail error:", menuError);
+    console.log("MenuDetail data:", menu);
+
+    useEffect(() => {
+        if (id) {
+            refetch(); // Explicitly re-fetch data when the component mounts or the ID changes
+        }
+    }, [id, refetch]);
 
     if (isMenuLoading) return <div>Loading...</div>;
     if (menuError) return <div>Error loading  menu details.</div>;
@@ -65,10 +73,9 @@ function MenuDetail() {
                             backgroundImage: `url('${menuImage}')`, // Use the menu image from the API
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
-                            borderRadius: '10px', 
+                            borderRadius: '10px',
                             height: '80vh', // Optional for styling
-                          }}
-                        
+                        }}
                     >
 
 

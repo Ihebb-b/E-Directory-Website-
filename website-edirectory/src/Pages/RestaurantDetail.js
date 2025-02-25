@@ -44,10 +44,6 @@ function RestaurantDetail() {
     // if (isRestaurantLoading) return <div>Loading restaurant details...</div>;
     // if (restaurantError) return <div>Error loading restaurant details.</div>;
 
-    
-
-
-
     // const dietImages = [
 
     //     "/homepages/restaurant/images/restaurant1.jpg",
@@ -62,6 +58,7 @@ function RestaurantDetail() {
     // };
 
     // const randomImage = getRandomImage();
+    
 
     const imageResto = restaurant?.image
         ? `http://localhost:5000${restaurant.image}` : "homepages/restaurant/images/darkish.jpg";

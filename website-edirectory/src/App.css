@@ -780,6 +780,107 @@
   padding: 0 !important; /* Use !important to override Bootstrap's default styles */
 }
 
+/* @media (max-width: 640px) {  
+  .p-dropdown {
+    position: relative;
+      left: 40px;
+  }
+} */
+
+.user-dropdown .p-dropdown-content {
+  left: auto;
+  right: 20; /* Align to the right */
+}
+
+.p-dropdown:not(.user-dropdown) .p-dropdown-content {
+  left: -40px; /* Adjust as needed */
+  transform: translateX(-50%);
+}
+
+
+@media (max-width: 768px) {
+  
+
+  .header-extras ul {
+    justify-content: flex-start; /* Align items to the left on small screens */
+}
+
+
+.p-dropdown.active .p-dropdown-content {
+  display: block;
+}
+
+  /* Adjust dropdown positioning for small screens */
+  .user-dropdown .p-dropdown-content {
+    left: auto;
+    right: 0;
+}
+
+
+  .p-dropdown:not(.user-dropdown) .p-dropdown-content {
+      left: 0px;
+      transform: none;
+  }
+}
+
+#mainMenu-trigger {
+  position: relative;
+  z-index: 2000; /* Ensure it's above other elements */
+  cursor: pointer; /* Make it clear that it's clickable */
+}
+
+#menuIcon {
+  display: block;
+  width: 40px; /* Ensure it has size */
+  height: 40px;
+}
+
+#mainMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+#mainMenu ul li {
+  margin: 0 10px;
+}
+
+
+@media (max-width: 768px) {
+  #navLinks {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background-color: #f9f9f9;
+      border-top: 1px solid #ddd;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      z-index: 1000;
+  }
+
+  #navLinks.open {
+      display: flex; /* Show the menu when it's toggled */
+  }
+}
+
+#mainMenu-trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

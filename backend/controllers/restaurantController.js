@@ -118,18 +118,35 @@ const getAllMenusPagi = async (req, res) => {
   }
 };
 
+// const getMenuById = async (req, res) => {
+//   const menuId = req.params.id; // Get the menu ID from the request parameters
+
+//   // Find the menu by ID
+//   const menu = await Menu.findById(menuId);
+
+//   if (!menu) {
+//     return res.status(404).json({ error: "Menu not found" });
+//   }
+
+//   // Return the found menu
+//   res.status(200).json(menu);
+// };
+
 const getMenuById = async (req, res) => {
-  const menuId = req.params.id; // Get the menu ID from the request parameters
+  const menuId = req.params.id;
 
-  // Find the menu by ID
-  const menu = await Menu.findById(menuId);
+  try {
+      const menu = await Menu.findById(menuId);
 
-  if (!menu) {
-    return res.status(404).json({ error: "Menu not found" });
+      if (!menu) {
+          return res.status(404).json({ error: "Menu not found" });
+      }
+
+      res.status(200).json(menu);
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Server error" });
   }
-
-  // Return the found menu
-  res.status(200).json(menu);
 };
 
 const getMenuByUserId = async (req, res) => {

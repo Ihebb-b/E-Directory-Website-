@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Slider.css'
-import { Link, NavLink, useNavigate} from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { logout, setCredentials } from '../slices/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useGetUserProfileQuery } from '../slices/userApiSlice';
@@ -20,20 +20,26 @@ function Header() {
 
     useEffect(() => {
         if (userInfo?.image) {
-          setUserImage(userInfo.image);
+            setUserImage(userInfo.image);
         }
-      }, [userInfo]);
-      
+    }, [userInfo]);
+
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuOpen((prev) => !prev);
+    };
 
 
 
-    
+
+
 
     const handleLogout = () => {
-        dispatch(logout());       
-        setShowModal(false);   
-        setShowSpinner(true);   
-        navigate('/');  
+        dispatch(logout());
+        setShowModal(false);
+        setShowSpinner(true);
+        navigate('/');
 
         setTimeout(() => {
             setShowSpinner(false);
@@ -118,9 +124,9 @@ function Header() {
                                                 <div className="widget-myaccount">
                                                     <div className="d-block">
                                                         <img
-                                                              className="avatar avatar-lg"
-                                                              src={userImage || "/homepages/restaurant/images/envt.jpg"}
-                                                              alt={`${userInfo.name}'s Avatar`}
+                                                            className="avatar avatar-lg"
+                                                            src={userImage || "/homepages/restaurant/images/envt.jpg"}
+                                                            alt={`${userInfo.name}'s Avatar`}
                                                         />
                                                     </div>
                                                     <span>{userInfo.name}</span>
@@ -182,12 +188,16 @@ function Header() {
                             </div>
                         )}
 
-                        <div id="mainMenu-trigger"> <a className="lines-button x"><span className="lines"></span></a> </div>
+                        <div id="mainMenu-trigger"> 
+                            <button id="mainMenu-trigger" onClick={toggleMenu}>
+                                <span className="lines"></span>
+                            </button> 
+                        </div>
 
                         <div id="mainMenu">
                             <div className="container">
                                 <nav>
-                                    <ul>
+                                    <ul id="navLinks"  className={menuOpen ? "open" : ""}>
                                         <li>
                                             <a id="btn-search" href="#"> <i className="icon-search"></i></a>
                                         </li>

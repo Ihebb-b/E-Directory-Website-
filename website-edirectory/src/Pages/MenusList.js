@@ -119,7 +119,8 @@ function MenusList() {
                           <a href="#">
                             <img
                               alt={menu.name}
-                              src={`https://restaurations.sqli-services.com/${menu.image}` || "/homepages/restaurant/images/default-image.jpg"}
+                              src={
+                                menu.image || "/homepages/restaurant/images/default-image.jpg"}
                               onError={(e) => {
                                 e.target.src = "/homepages/restaurant/images/default-image.jpg";
                               }}
