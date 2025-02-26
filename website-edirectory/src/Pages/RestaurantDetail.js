@@ -10,7 +10,7 @@ function RestaurantDetail() {
 
     const navigate = useNavigate();
 
-    const backgroundImagere = "url('homepages/restaurant/images/background.jpg')"; 
+    const backgroundImagere = "url('homepages/restaurant/images/background.jpg')";
 
     useEffect(() => {
         const elements = document.querySelectorAll('[data-animate]');
@@ -58,7 +58,7 @@ function RestaurantDetail() {
     // };
 
     // const randomImage = getRandomImage();
-    
+
 
     const imageResto = restaurant?.image
         ? `http://localhost:5000${restaurant.image}` : "homepages/restaurant/images/darkish.jpg";
@@ -429,54 +429,19 @@ function RestaurantDetail() {
 
                                                 {/* Check if plates exist and split them into two columns if > 4 */}
                                                 {plates.length > 0 ? (
-                                                    <>
-                                                        {plates.length > 4 ? (
-                                                            // Split plates into two columns
-                                                            <div className="row">
-                                                                {/* First Column */}
-                                                                <div className="col-lg-6 animate-fade-in">
-                                                                    <ul className="price-menu-list">
-                                                                        {plates
-                                                                            .slice(0, Math.ceil(plates.length / 2))
-                                                                            .map((plate) => (
-                                                                                <li key={plate._id}>
-                                                                                    <h3 className="font-nothing-you-could-do">{plate.name}</h3>
-                                                                                    <h4>${plate.price.toFixed(2)}</h4>
-                                                                                </li>
-                                                                            ))}
-                                                                    </ul>
-                                                                </div>
-
-                                                                {/* Second Column */}
-                                                                <div className="col-lg-6 animate-fade-in">
-                                                                    <ul className="price-menu-list">
-                                                                        {plates
-                                                                            .slice(Math.ceil(plates.length / 2))
-                                                                            .map((plate) => (
-                                                                                <li key={plate._id}>
-                                                                                    <h3 className="font-nothing-you-could-do">{plate.name}</h3>
-                                                                                    <h4>${plate.price.toFixed(2)}</h4>
-                                                                                </li>
-                                                                            ))}
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        ) : (
-                                                            // Single column for 4 or fewer plates
-                                                            <div className="col-lg-12 animate-fade-in">
+                                                    <div className="row d-flex flex-wrap">
+                                                        {plates.map((plate) => (
+                                                            <div className="col-lg-3 col-md-4 col-sm-6 animate-fade-in" key={plate._id}>
                                                                 <ul className="price-menu-list">
-                                                                    {plates.map((plate) => (
-                                                                        <li key={plate._id}>
-                                                                            <h3>{plate.name}</h3>
-                                                                            <h4>${plate.price.toFixed(2)}</h4>
-                                                                        </li>
-                                                                    ))}
+                                                                    <li>
+                                                                        <h3 className="font-nothing-you-could-do">{plate.name}</h3>
+                                                                        <h4>${plate.price.toFixed(2)}</h4>
+                                                                    </li>
                                                                 </ul>
                                                             </div>
-                                                        )}
-                                                    </>
+                                                        ))}
+                                                    </div>
                                                 ) : (
-                                                    // No plates available
                                                     <p>No plates available.</p>
                                                 )}
                                             </div>
@@ -493,11 +458,12 @@ function RestaurantDetail() {
                     </div>
                 </section>
 
-                <section id="section-recipes" className="p-t-150 p-b-150" 
-                style={{ 
-                    backgroundImage: backgroundImagere, 
-                    backgroundSize: 'cover', 
-                    backgroundPosition: 'center'}}>
+                <section id="section-recipes" className="p-t-150 p-b-150"
+                    style={{
+                        backgroundImage: backgroundImagere,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
+                    }}>
                     <div className="container" >
                         <div className="d-flex justify-content-between align-items-center mt-3" style={{ padding: '0 15px' }}>
                             <div className="heading-text" style={{ flex: '1' }}>
