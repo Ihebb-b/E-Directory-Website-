@@ -493,60 +493,6 @@ function RestaurantDetail() {
                     </div>
                 </section>
 
-
-                {/* <section id="section-gallery" className="p-t-150 p-b-150">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-4">
-                                <h5 className="m-b-0">The food</h5>
-                                <h2 className="text-lg font-herr-von-muellerhoff text-colored">Gallery</h2>
-                                <p style={{ textAlign: "justify" }}>Step into a visual feast with our gallery of meals,
-                                    showcasing the vibrant and mouthwatering dishes that
-                                    define our restaurant. From beautifully plated Mediterranean
-                                    classics to creative modern delights,
-                                    each image captures the artistry, freshness,
-                                    and passion that go into every meal we serve.
-                                    Let your eyes savor the rich colors of our dishes,
-                                    the perfect sear on our meats, the freshness of our salads,
-                                    and the indulgent allure of our desserts. It's not just food;
-                                    it's an experience waiting to be savored.
-                                </p>
-                            </div>
-
-                            <div className="col-lg-8">
-
-                                <div className="row">
-
-                                    <div className="col-md-4 mb-3">
-                                        <img src="/homepages/restaurant/images/gallery/8.jpg" alt="Gallery Image 1" className="img-fluid" />
-                                    </div>
-
-                                    <div className="col-md-4 mb-3">
-                                        <img src="/homepages/restaurant/images/gallery/7.jpg" alt="Gallery Image 2" className="img-fluid" />
-                                    </div>
-
-                                    <div className="col-md-4 mb-3">
-                                        <img src="/homepages/restaurant/images/gallery/6.jpg" alt="Gallery Image 3" className="img-fluid" />
-                                    </div>
-
-                                    <div className="col-md-4 mb-3">
-                                        <img src="/homepages/restaurant/images/gallery/5.jpg" alt="Gallery Image 4" className="img-fluid" />
-                                    </div>
-
-                                    <div className="col-md-4 mb-3">
-                                        <img src="/homepages/restaurant/images/gallery/4.jpg" alt="Gallery Image 5" className="img-fluid" />
-                                    </div>
-
-                                    <div className="col-md-4 mb-3">
-                                        <img src="/homepages/restaurant/images/gallery/3.jpg" alt="Gallery Image 6" className="img-fluid" />
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </section> */}
-
                 <section id="section-recipes" className="p-t-150 p-b-150" 
                 style={{ 
                     backgroundImage: backgroundImagere, 

@@ -83,25 +83,7 @@ export default function Home() {
         navigate(`/rlist?${params}`);
     };
 
-    // const handleSearch = () => {
-    //         const country = document.getElementById("country-select").value;
-    //         const diet = document.getElementById("diet-select").value;
-    //         const averageBill = document.getElementById("average-bill").value;
-
-    //         onSearch({
-    //             country,
-    //             diet,
-    //             averageBill: parseInt(averageBill, 10) || 0,
-    //         });
-    //     };
-
-
-
-
-    if (isLoading) return <p>Loading menus...</p>;
-    if (error) return <p>Error loading menus: {error.message}</p>;
-
-    // Get the last 4 menus
+    
     const lastFourMenus = menus.slice(-4);
     
     //Similarly

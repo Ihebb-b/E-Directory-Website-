@@ -153,8 +153,8 @@ function ProfileR() {
 
     const backgroundImage = "url('homepages/restaurant/images/darkish.jpg')"; // Ensure correct path to the image
     const imageResto = userInfo?.image
-        ? `http://localhost:5000${userInfo.image}` : "homepages/restaurant/images/darkish.jpg";
-
+        ? userInfo.image
+        : "homepages/restaurant/images/darkish.jpg";
 
     // Adjust with your backend host
 
@@ -299,56 +299,7 @@ function ProfileR() {
                     </div>
                 </section>
 
-                {/* <section className="red-bg">
-                    <div className="container">
-                        <div className="d-flex justify-content-between align-items-center mt-3" style={{ padding: '0 15px' }}>
-                            <div className="heading-text" style={{ flex: '1' }}>
-                                <h2 style={{ margin: 0 }}>My Menus</h2>
-                            </div>
-                            <a href="/addmenu" style={{ flex: '1' }}>
-                                <button type="button" className="btn btn-rounded btn-outline">Add Menu</button>
-                            </a>
-                        </div>
 
-                        <div className="row mt-4">
-                            {Array.isArray(menus) && menus.length === 0 ? (
-                                <p className="col-12 text-center">No menus found for your account.</p>
-                            ) : (
-                                menus?.map((menu) => (
-                                    <div className="col-lg-4 col-md-4 col-sm-6 mb-4" key={menu._id}>
-                                        <div className="room card " 
-                                            style={{
-                                                backgroundColor: '#FFF6F4',
-                                                height: '45vh',
-                                            }}>
-                                            <div className="room-image card-img-top">
-                                                <img
-                                                    src={`http://localhost:3000${menu.image}`}
-                                                    alt={menu.name || "Menu Image"}
-                                                    className="img-fluid"
-                                                    style={{
-                                                        width: '100%',
-                                                        height: '30vh',
-                                                        objectFit: 'cover',
-                                                        borderRadius: '8px',
-                                                    }}
-                                                />
-                                                <div className="room-title card-body">
-                                                    <h4 className="card-title" style={{ color: "white" }}>{menu.name}</h4>
-                                                </div>
-                                            </div>
-                                            <div className="room-title card-body">
-                                                <h5 className="card-title" style={{ color: "black" }}>{menu.description}</h5>
-                                            </div>
-                                           
-
-                                        </div>
-                                    </div>
-                                ))
-                            )}
-                        </div>
-                    </div>
-                </section> */}
 
                 <section className="red-bg">
                     <div className="container">
@@ -469,7 +420,7 @@ function ProfileR() {
                                                 style={{ position: "relative" }}
                                             >
                                                 <img
-                                                    src={`http://localhost:3000${menu.image}`}
+                                                    src={menu.image}
                                                     alt={menu.name || "Menu Image"}
                                                     className="img-fluid"
                                                     style={{
@@ -684,8 +635,8 @@ function ProfileR() {
                                             <div className="room-image card-img-top "
                                                 style={{ position: "relative" }}>
                                                 <img
-                                                    src={`http://localhost:3000${recipe.image}`}
-                                                    alt={recipe.name || "Recipe Image"}
+                                                    src={recipe.image}
+                                                    alt={recipe.name}
                                                     className="img-fluid"
                                                     style={{
                                                         width: '100%',

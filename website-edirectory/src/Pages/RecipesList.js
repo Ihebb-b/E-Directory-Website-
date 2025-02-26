@@ -74,87 +74,8 @@ function RecipesList() {
                     </ul>
                   </div>
                 </div>
-                {/* 
-                <div id="blog" class="post-thumbnails">
-
-                  <div class="post-item">
-                    <div class="post-item-wrap">
-                      <div class="post-image">
-                        <a href="#">
-                          <img alt="" src="/homepages/restaurant/images/shakshouka.jpg" />
-                        </a>
-                      </div>
-                      <div class="post-item-description">
-
-                        <h2><a href="#">Shakshuka
-                        </a></h2>
-                        <p style={{ textAlign: "justify" }}>A hearty North African dish of poached eggs
-                          in a savory tomato, pepper, and onion sauce, spiced with cumin and paprika.
-                          Perfect for breakfast or brunch.</p>
-                        <i class="icon-chevron-right"> <NavLink to="/recipedetail" class="item-link">Read More</NavLink></i>
-
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="post-item">
-                    <div class="post-item-wrap">
-                      <div class="post-image">
-                        <a href="#">
-                          <img alt="" src="/homepages/restaurant/images/spanakopita.jpg" />
-                        </a>
-                      </div>
-                      <div class="post-item-description">
-
-                        <h2><a href="#">Spanakopita
-                        </a></h2>
-                        <p style={{ textAlign: "justify" }}>A savory Greek pastry made with flaky
-                          layers of phyllo dough, filled with a delicious mixture of spinach,
-                          feta cheese, and aromatic herbs like dill and parsley.
-                          Perfect as a snack or appetizer.</p>
-                        <a href="#" class="item-link">Read More <i class="icon-chevron-right"></i></a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="post-item">
-                    <div class="post-item-wrap">
-                      <div class="post-image">
-                        <a href="#">
-                          <img alt="" src="/homepages/restaurant/images/moussaka.jpg" />
-                        </a>
-                      </div>
-                      <div class="post-item-description">
-
-                        <h2><a href="#">Moussaka
-                        </a></h2>
-                        <p style={{ textAlign: "justify" }}>A classic Mediterranean comfort food,
-                          this dish combines layers of roasted eggplant, seasoned ground lamb or beef,
-                          and a creamy béchamel sauce, baked to golden perfection.</p>
-                        <a href="#" class="item-link">Read More <i class="icon-chevron-right"></i></a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="post-item">
-                    <div class="post-item-wrap">
-                      <div class="post-image">
-                        <a href="#">
-                          <img alt="" src="/homepages/restaurant/images/tabbouleh.jpg" />
-                        </a>
-                      </div>
-                      <div class="post-item-description">
-
-                        <h2><a href="#">Tabbouleh
-                        </a></h2>
-                        <p style={{ textAlign: "justify" }}>A refreshing Levantine salad made with finely chopped
-                          parsley, fresh mint, bulgur wheat, tomatoes, and cucumbers, tossed with a tangy lemon
-                          and olive oil dressing. A light and healthy choice!</p>
-                        <a href="#" class="item-link">Read More <i class="icon-chevron-right"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
+                 
+              
                 <div id="blog" className="post-thumbnails">
                   {isLoading ? (
                     <p>Loading...</p>
@@ -203,15 +124,7 @@ function RecipesList() {
 
 
 
-                {/* <ul class="pagination">
-                  <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item active"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">4</a></li>
-                  <li class="page-item"><a class="page-link" href="#">5</a></li>
-                  <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
-                </ul> */}
+              
 
                 <ul className="pagination">
                   <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
