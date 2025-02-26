@@ -27,9 +27,20 @@ function AddMenu() {
     // Handle changing field values for plates
     const handleFieldChange = (index, field, value) => {
         setPlates(
-            plates.map((plate, i) =>
-                i === index ? { ...plate, [field]: field === "price" ? parseFloat(value) || "" : value } : plate
-            )
+            plates.map((plate, i) => {
+                // Check if the current index matches the one being updated
+                if (i === index) {
+                    // If the field is "price", ensure it's a non-negative number
+                    if (field === "price") {
+                        const numericValue = parseFloat(value);
+                        // Only update if the value is a valid non-negative number
+                        return { ...plate, [field]: isNaN(numericValue) || numericValue < 0 ? "" : numericValue };
+                    }
+                    // For other fields, just update normally
+                    return { ...plate, [field]: value };
+                }
+                return plate; // Return the plate unchanged if the index doesn't match
+            })
         );
     };
 
@@ -37,6 +48,8 @@ function AddMenu() {
     const handleFileChange = (e) => {
         setMenuImage(e.target.files[0]);
     };
+
+   
 
     // Form submission handler
     const handleSubmit = async (e) => {
@@ -168,6 +181,7 @@ function AddMenu() {
                                                 value={plate.price || ""}
                                                 onChange={(e) => handleFieldChange(index, "price", e.target.value)}
                                                 required
+                                                min="0"
                                             />
 
                                             </div>

@@ -21,9 +21,9 @@ function Role() {
     const navigate = useNavigate();
     const [image, setImage] = useState(null);
     const [showSpinner, setShowSpinner] = useState(false);
-    
-    
-    
+
+
+
     const handleRoleClick = (selectedRole) => {
         setRole(selectedRole);
         setShowDetailsForm(true);
@@ -39,55 +39,64 @@ function Role() {
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         setImage(file); // Save the file in the component's state
-      };
+    };
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          // Create FormData object
-          const formData = new FormData();
-          formData.append("role", role);
-          formData.append("localisation", localisation);
-          formData.append("averageBill", averageBill);
-          formData.append("description", description);
-          formData.append("diet", diet);
-      
-          if (image) {
-            formData.append("image", image); // Append the image file
-          }
-      
-          console.log("FormData Content:");
-          for (let pair of formData.entries()) {
-            console.log(`${pair[0]}: ${pair[1]}`); // Log FormData key-value pairs for debugging
-          }
-      
-          // Use updateUser mutation with FormData
-          const updatedUser = await updateUser(formData).unwrap();
-      
-          // Update Redux store
-          dispatch(setCredentials(updatedUser));
-      
-          // Success alert
-          setAlert({
-            show: true,
-            type: "success",
-            message: "Profile updated successfully!",
-          });
-      
-          // Navigate after delay
-          setShowSpinner(true);
-          setTimeout(() => navigate("/auth"), 2000);
-          setTimeout(() => setShowSpinner(false), 2000);
+            // Create FormData object
+            const formData = new FormData();
+            formData.append("role", role);
+            formData.append("localisation", localisation);
+            formData.append("averageBill", averageBill);
+            formData.append("description", description);
+            formData.append("diet", diet);
+
+            if (image) {
+                formData.append("image", image); // Append the image file
+            }
+
+            console.log("FormData Content:");
+            for (let pair of formData.entries()) {
+                console.log(`${pair[0]}: ${pair[1]}`); // Log FormData key-value pairs for debugging
+            }
+
+            // Use updateUser mutation with FormData
+            const updatedUser = await updateUser(formData).unwrap();
+
+            // Update Redux store
+            dispatch(setCredentials(updatedUser));
+
+            // Success alert
+            setAlert({
+                show: true,
+                type: "success",
+                message: "Profile updated successfully!",
+            });
+
+            // Navigate after delay
+            setShowSpinner(true);
+            setTimeout(() => navigate("/auth"), 2000);
+            setTimeout(() => setShowSpinner(false), 2000);
         } catch (err) {
-          console.error("Failed to update profile:", err);
-          setAlert({
-            show: true,
-            type: "danger",
-            message: err?.data?.message || "Profile update failed.",
-          });
+            console.error("Failed to update profile:", err);
+            setAlert({
+                show: true,
+                type: "danger",
+                message: err?.data?.message || "Profile update failed.",
+            });
         }
 
+    };
+
+    const handleAverageBillChange = (value) => {
+        const numericValue = parseFloat(value);
+        if (isNaN(numericValue) || numericValue < 0) {
+            setAverageBill(''); // Set to empty string if invalid
+        } else {
+            setAverageBill(numericValue); // Update with valid number
+        }
     };
 
     return (
@@ -276,8 +285,9 @@ function Role() {
                                                                     name="averageBill"
                                                                     placeholder="Enter average bill"
                                                                     value={averageBill}
-                                                                    onChange={(e) => setAverageBill(e.target.value)}
+                                                                    onChange={(e) => handleAverageBillChange(e.target.value)}
                                                                     required
+                                                                    min="0"
                                                                 />
                                                                 <span className="input-group-text"><i className="icon-dollar-sign"></i></span>
                                                             </div>

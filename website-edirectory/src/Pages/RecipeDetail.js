@@ -58,16 +58,16 @@ function RecipeDetail() {
                         </div>
                     </div>
                     <div class="profile-bio">
-                        <h3>{recipe?.name || 'Recipe Details'}</h3>
-                        <br />
+                        {/* <h3>{recipe?.name || 'Recipe Details'}</h3>
+                        <br /> */}
 
 
-                        <p>{recipe?.description || 'No description available.'}</p>
+                        {/* <p>{recipe?.description || 'No description available.'}</p> */}
 
 
                         <div className="ingredients-list m-t-60">
                             <h3 className="text-uppercase text-center">Ingredients</h3>
-                            <ul className="ingredients">
+                            <ul className="ingredients text-center">
                                 {recipe?.ingredients?.length > 0 ? (
                                     recipe.ingredients.map((ingredient, index) => (
                                         <li key={index}>
