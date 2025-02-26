@@ -46,14 +46,6 @@ function MenusList() {
   }
 
   // Error state
-  if (isError) {
-    return <p>An error occurred while fetching menus.</p>;
-  }
-
-  // Empty state
-  if (!menus.length) {
-    return <p>No menus available.</p>;
-  }
 
 
   return (
@@ -64,7 +56,7 @@ function MenusList() {
         <Header2 />
 
         <section id="page-title" data-bg-parallax="homepages/restaurant/images/main-1.jpg"
-          style={{ 
+          style={{
             backgroundColor: "rgba(0, 0, 0, 0.5)",
             backgroundImage: "url('homepages/restaurant/images/menu1.jpg')",
             backgroundPosition: "50% 70%",
@@ -112,48 +104,49 @@ function MenusList() {
                 </div>
 
                 <div id="blog" className="post-thumbnails">
-                  {menus.map((menu, index) => (
-                    <div className="post-item" key={menu._id}>
-                      <div className="post-item-wrap">
-                        <div className="post-image">
-                          <a href="#">
-                            <img
-                              alt={menu.name}
-                              src={
-                                menu.image || "/homepages/restaurant/images/default-image.jpg"}
-                              onError={(e) => {
-                                e.target.src = "/homepages/restaurant/images/default-image.jpg";
-                              }}
-
-                              style={{
-                                width: "350px", // Set fixed width
-                                height: "250px", // Set fixed height
-                                objectFit: "cover", // Maintain aspect ratio and avoid stretching
-                                borderRadius: "8px", // Optional: Rounded corners
-                                margin: "0 auto", // Center the image
-                              }}
-                            //src={`url('${menuImage}')`}
-                            //src={menu.image || "/homepages/restaurant/images/envt.jpg"}
-                            //src={`/homepages/restaurant/images/menumed${index % 4 + 1}.jpg`} // Cycle through static images
-                            />
-                          </a>
-                        </div>
-                        <div className="post-item-description">
-                          <h2>
-                            <NavLink to={`/getMenu/${menu?._id}`}>{menu.name}</NavLink>
-                          </h2>
-                          <p style={{ textAlign: "justify" }}>{menu.description}</p>
-                          <NavLink
-                            to={`/getMenu/${menu?._id}`} // Dynamically link to restaurant detail page
-                            className="item-link"
-                          >
-                            Read More <i className="icon-chevron-right"></i>
-                          </NavLink>
+                  {isLoading ? (
+                    <p>Loading...</p>
+                  ) : isError ? (
+                    <p>An error occurred: {error.message}</p>
+                  ) : !menus.length ? (
+                    <p>No menus available.</p>
+                  ) : (
+                    menus.map((menu, index) => (
+                      <div className="post-item" key={menu._id}>
+                        <div className="post-item-wrap">
+                          <div className="post-image">
+                            <a href="#">
+                              <img
+                                alt={menu.name}
+                                src={menu.image || "/homepages/restaurant/images/default-image.jpg"}
+                                onError={(e) => {
+                                  e.target.src = "/homepages/restaurant/images/default-image.jpg";
+                                }}
+                                style={{
+                                  width: "350px",
+                                  height: "250px",
+                                  objectFit: "cover",
+                                  borderRadius: "8px",
+                                  margin: "0 auto",
+                                }}
+                              />
+                            </a>
+                          </div>
+                          <div className="post-item-description">
+                            <h2>
+                              <NavLink to={`/getMenu/${menu?._id}`}>{menu.name}</NavLink>
+                            </h2>
+                            <p style={{ textAlign: "justify" }}>{menu.description}</p>
+                            <NavLink to={`/getMenu/${menu?._id}`} className="item-link">
+                              Read More <i className="icon-chevron-right"></i>
+                            </NavLink>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))
+                  )}
                 </div>
+
 
 
                 <ul className="pagination">
