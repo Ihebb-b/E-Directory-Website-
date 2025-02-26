@@ -850,20 +850,20 @@
 
 @media (max-width: 768px) {
   #navLinks {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      background-color: #f9f9f9;
-      border-top: 1px solid #ddd;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      z-index: 1000;
-  }
+    display: none; /* Ensure it's initially hidden */
+    flex-direction: column;
+    width: 100%;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 1000;
+}
 
-  #navLinks.open {
-      display: flex; /* Show the menu when it's toggled */
-  }
+#navLinks.open {
+    display: flex !important; /* Force it to appear */
+}
 }
 
 #mainMenu-trigger {

@@ -27,12 +27,11 @@ function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {
-        setMenuOpen((prev) => !prev);
+        setMenuOpen((prev) => {
+            console.log("Menu state before update:", prev);
+            return !prev;
+        });
     };
-
-
-
-
 
 
     const handleLogout = () => {
@@ -189,7 +188,7 @@ function Header() {
                         )}
 
                         <div id="mainMenu-trigger"> 
-                            <button id="mainMenu-trigger" onClick={toggleMenu}>
+                            <button id="menu-button" onClick={toggleMenu}>
                                 <span className="lines"></span>
                             </button> 
                         </div>

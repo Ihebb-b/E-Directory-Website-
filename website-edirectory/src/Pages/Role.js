@@ -77,7 +77,7 @@ function Role() {
       
           // Navigate after delay
           setShowSpinner(true);
-          setTimeout(() => navigate("/"), 2000);
+          setTimeout(() => navigate("/auth"), 2000);
           setTimeout(() => setShowSpinner(false), 2000);
         } catch (err) {
           console.error("Failed to update profile:", err);
