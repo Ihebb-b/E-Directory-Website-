@@ -8,7 +8,7 @@ function MenusList() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
-  const { data, isLoading, isError } = useGetAllMenuPagiQuery({
+  const { data, isLoading, isError, error, refetch } = useGetAllMenuPagiQuery({
     page: currentPage,
     limit: itemsPerPage,
   });
