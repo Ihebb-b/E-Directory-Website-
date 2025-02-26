@@ -58,8 +58,8 @@ function RecipeDetail() {
                         </div>
                     </div>
                     <div class="profile-bio">
-                        {/* <h3>{recipe?.name || 'Recipe Details'}</h3>
-                        <br /> */}
+                        <h3>{recipe?.name || 'Recipe Details'}</h3>
+                        <br />
 
 
                         {/* <p>{recipe?.description || 'No description available.'}</p> */}

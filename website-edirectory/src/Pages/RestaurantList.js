@@ -354,11 +354,11 @@ function RestaurantList() {
                                                     </div>
                                                     <div className="post-item-description">
                                                         <h2>
-                                                            <NavLink to={`/${restaurant?._id}`}>{restaurant.name}</NavLink>
+                                                            <NavLink to={`/restaurant/${restaurant?._id}`}>{restaurant.name}</NavLink>
                                                         </h2>
                                                         <p style={{ textAlign: "justify" }}>{restaurant.description}</p>
                                                         <NavLink
-                                                            to={`/${restaurant?._id}`}
+                                                            to={`/restaurant/${restaurant?._id}`}
                                                             className="item-link"
                                                         >
                                                             Read More <i className="icon-chevron-right"></i>
