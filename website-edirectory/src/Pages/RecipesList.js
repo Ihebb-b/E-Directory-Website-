@@ -18,7 +18,7 @@ function RecipesList() {
   const itemsPerPage = 5;
 
 
-  const { data, isLoading, isError } = useGetAllRecipePagiQuery({
+  const { data, isLoading, isError, error, refetch } = useGetAllRecipePagiQuery({
     page: currentPage,
     limit: itemsPerPage,
   });
@@ -32,16 +32,6 @@ function RecipesList() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
-  if (isError) {
-    return <p>An error occurred while fetching restaurants.</p>;
-  }
-
-
 
   return (
     <>
@@ -165,50 +155,52 @@ function RecipesList() {
                     </div>
                   </div>
                 </div> */}
-
                 <div id="blog" className="post-thumbnails">
-                  {recipes.map((recipe, index) => (
-                    <div className="post-item" key={recipe._id}>
-                      <div className="post-item-wrap">
-                        <div className="post-image" >
-                          <a href="#">
-                            <img
-                              alt={recipe.name}
-                              src={recipe.image || "/homepages/restaurant/images/default-image.jpg"}
-                              onError={(e) => {
-                                e.target.src = "/homepages/restaurant/images/default-image.jpg";
-                              }}
-
-                              style={{
-                                width: "350px", // Set fixed width
-                                height: "250px", // Set fixed height
-                                objectFit: "cover", // Maintain aspect ratio and avoid stretching
-                                borderRadius: "8px", // Optional: Rounded corners
-                                margin: "0 auto", // Center the image
-                              }}
-                            //src={`url('${menuImage}')`}
-                            //src={menu.image || "/homepages/restaurant/images/envt.jpg"}
-                            //src={`/homepages/restaurant/images/menumed${index % 4 + 1}.jpg`} // Cycle through static images
-                            />
-                          </a>
-                        </div>
-                        <div className="post-item-description">
-                          <h2>
-                            <NavLink to={`/recipeDetail/${recipe?._id}`}>{recipe.name} </NavLink>
-                          </h2>
-                          <p style={{ textAlign: "justify" }}>{recipe.ingredients.join(", ")}
-                          </p>
-                          <NavLink
-                            to={`/recipeDetail/${recipe?._id}`} // Dynamically link to restaurant detail page
-                            className="item-link"
-                          >
-                            Read More <i className="icon-chevron-right"></i>
-                          </NavLink>
+                  {isLoading ? (
+                    <p>Loading...</p>
+                  ) : isError ? (
+                    <p>An error occurred: {error.message}</p>
+                  ) : !recipes.length ? (
+                    <p>No recipes available.</p>
+                  ) : (
+                    recipes.map((recipe, index) => (
+                      <div className="post-item" key={recipe._id}>
+                        <div className="post-item-wrap">
+                          <div className="post-image">
+                            <a href="#">
+                              <img
+                                alt={recipe.name}
+                                src={recipe.image || "/homepages/restaurant/images/default-image.jpg"}
+                                onError={(e) => {
+                                  e.target.src = "/homepages/restaurant/images/default-image.jpg";
+                                }}
+                                style={{
+                                  width: "350px",
+                                  height: "250px",
+                                  objectFit: "cover",
+                                  borderRadius: "8px",
+                                  margin: "0 auto",
+                                }}
+                              />
+                            </a>
+                          </div>
+                          <div className="post-item-description">
+                            <h2>
+                              <NavLink to={`/recipeDetail/${recipe?._id}`}>{recipe.name}</NavLink>
+                            </h2>
+                            <p style={{ textAlign: "justify" }}>
+                              {recipe.ingredients.join(", ")}
+                            </p>
+                            <NavLink to={`/recipeDetail/${recipe?._id}`} className="item-link">
+                              Read More <i className="icon-chevron-right"></i>
+                            </NavLink>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))
+                  )}
                 </div>
+
 
 
                 {/* <ul class="pagination">
