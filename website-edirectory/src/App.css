@@ -824,76 +824,40 @@
   }
 }
 
-#mainMenu-trigger {
-  position: relative;
-  z-index: 2000; /* Ensure it's above other elements */
-  cursor: pointer; /* Make it clear that it's clickable */
-}
-
-#menuIcon {
-  display: block;
-  width: 40px; /* Ensure it has size */
-  height: 40px;
-}
-
-#mainMenu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-}
-
-#mainMenu ul li {
-  margin: 0 10px;
-}
-
-
-@media (max-width: 768px) {
-  #navLinks {
-    display: none; /* Ensure it's initially hidden */
-    flex-direction: column;
-    width: 100%;
-    background-color: #f9f9f9;
-    border-top: 1px solid #ddd;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    z-index: 1000;
-}
-
-#navLinks.open {
-    display: flex !important; /* Force it to appear */
-}
-}
-
-#mainMenu-trigger {
+.menu-button {
+  font-size: 24px;
   background: none;
   border: none;
+  color: white;
   cursor: pointer;
+  left: 20px;
+  right:30px;
 }
 
+/* Navigation Menu */
+.menu {
+  display: none;
+  position: absolute;
+  top: 6px;
+  left: 20px;
+  background: #333;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+}
 
+/* Open Menu */
+.menu.open {
+  display: block;
+}
 
+/* Menu Links */
+.menu ul li {
+  padding: 10px 0;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}

@@ -288,113 +288,7 @@ function RestaurantDetail() {
                         </div>
                     </div>
                 </section>
-
-
-
-                {/* <section
-                    id="section-menu"
-                    className="p-t-100 p-b-100 text-light"
-                    style={{ backgroundImage: "url('/homepages/restaurant/images/menu2.jpg')" }}
-                >
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <h2 className="text-medium m-b-40">MENU</h2>
-                            </div>
-
-                            {isMenuLoading ? (
-                                <div className="col-lg-12">
-                                    <p>Loading menus...</p>
-                                </div>
-                            ) : menuError ? (
-                                <div className="col-lg-12">
-                                    <p>No menus available for the moment</p>
-                                </div>
-                            ) : menuItems?.length > 0 ? (
-                                <>
-                                   
-
-                                    {menuItems.some((item) => item.plates.length > 4) ? (
-                                        <>
-                                            <div className="col-lg-6 animate-fade-in">
-                                                <ul className="price-menu-list">
-                                                    {menuItems
-                                                        .slice(0, Math.ceil(menuItems.length / 2)) // Split menuItems into two halves
-                                                        .map((item) => (
-                                                            <li key={item._id}>
-                                                                <h2 className="font-nothing-you-could-do">{item.name}</h2>
-                                                                <p>{item.description}</p>
-                                                                {item.plates.length > 0 ? (
-                                                                    item.plates.map((plate) => (
-                                                                        <div key={plate._id}>
-                                                                            <h3 className="font-nothing-you-could-do">{plate.name}</h3>
-                                                                            <h4>${plate.price.toFixed(2)}</h4>
-                                                                        </div>
-                                                                    ))
-                                                                ) : (
-                                                                    <p>No plates available.</p>
-                                                                )}
-                                                            </li>
-                                                        ))}
-                                                </ul>
-                                            </div>
-
-                                            <div className="col-lg-6 animate-fade-in">
-                                                <ul className="price-menu-list">
-                                                    {menuItems
-                                                        .slice(Math.ceil(menuItems.length / 2)) // Second half of menuItems
-                                                        .map((item) => (
-                                                            <li key={item._id}>
-                                                                <h2 className="font-nothing-you-could-do">{item.name}</h2>
-                                                                <p>{item.description}</p>
-                                                                {item.plates.length > 0 ? (
-                                                                    item.plates.map((plate) => (
-                                                                        <div key={plate._id}>
-                                                                            <h3>{plate.name}</h3>
-                                                                            <h4>${plate.price.toFixed(2)}</h4>
-                                                                        </div>
-                                                                    ))
-                                                                ) : (
-                                                                    <p>No plates available.</p>
-                                                                )}
-                                                            </li>
-                                                        ))}
-                                                </ul>
-                                            </div>
-                                        </>
-                                    ) : (
-                                        <div className="col-lg-12 animate-fade-in">
-                                            <ul className="price-menu-list">
-                                                {menuItems.map((item) => (
-                                                    <li key={item._id}>
-                                                        <h2 className="font-nothing-you-could-do">{item.name}</h2>
-                                                        <p>{item.description}</p>
-                                                        {item.plates.length > 0 ? (
-                                                            item.plates.map((plate) => (
-                                                                <div key={plate._id}>
-                                                                    <h3>{plate.name}</h3>
-                                                                    <h4>${plate.price.toFixed(2)}</h4>
-                                                                </div>
-                                                            ))
-                                                        ) : (
-                                                            <p>No plates available.</p>
-                                                        )}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    )}
-                                </>
-                            ) : (
-                                <div className="col-lg-12">
-                                    <p>No menu items available.</p>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                </section> */}
-
-
+   
                 <section
                     id="section-menu"
                     className="p-t-100 p-b-100 text-light"
@@ -553,8 +447,8 @@ function RestaurantDetail() {
                                     </div>
                                     <h3>Restaurant Location</h3>
                                     <p><strong>Restaurant Address:</strong>
-                                        <br /> 795 Folsom Ave, Suite 600
-                                        <br /> San Francisco, CA 94107
+                                       
+                                        <br /> {restaurant?.localisation}
                                     </p>
                                 </div>
                             </div>

@@ -27,12 +27,9 @@ function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {
-        setMenuOpen((prev) => {
-            console.log("Menu state before update:", prev);
-            return !prev;
-        });
-    };
-
+        console.log("Menu state before update:", menuOpen); // Debugging log
+        setMenuOpen((prevState) => !prevState);
+      };
 
     const handleLogout = () => {
         dispatch(logout());
@@ -187,53 +184,71 @@ function Header() {
                             </div>
                         )}
 
-                        <div id="mainMenu-trigger"> 
+                        {/* <div id="mainMenu-trigger">
                             <button id="menu-button" onClick={toggleMenu}>
                                 <span className="lines"></span>
-                            </button> 
+                            </button>
                         </div>
 
-                        <div id="mainMenu">
+                        <div id="mainMenu" className={menuOpen ? "menu-open" : ""}>
                             <div className="container">
                                 <nav>
-                                    <ul id="navLinks"  className={menuOpen ? "open" : ""}>
+                                    <ul id="navLinks" className={menuOpen ? "open" : ""}>
                                         <li>
-                                            <a id="btn-search" href="#"> <i className="icon-search"></i></a>
+                                            <a id="btn-search" href="#">
+                                                <i className="icon-search"> </i>
+                                            </a>
                                         </li>
                                         <li> <NavLink to="/">Home</NavLink></li>
                                         <li> <NavLink to="/rlist">Restaurants</NavLink></li>
-                                        {/* <li className="dropdown"><NavLink to="/rlist">Restaurant</NavLink> */}
-                                        {/* <ul className="dropdown-menu">
-                                                <li className="dropdown-submenu"><a href="#">categ1</a>
-                                                    <ul className="dropdown-menu">
-                                                        <li><a href="header-topbar.html">Light</a></li>
-                                                        <li><a href="header-topbar-dark.html">Dark</a></li>
-                                                        <li><a href="header-topbar-transparent.html">Transparent</a></li>
-                                                        <li><a href="header-topbar-colored.html">Colored</a></li>
-                                                        <li><a href="header-topbar-fullwidth.html">Fullwidth</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul> 
-                                        </li>*/}
+
                                         <li> <NavLink to="/menulist">Menus</NavLink></li>
                                         <li> <NavLink to="/recipelist">Recipes</NavLink></li>
 
-                                        {/* <li className="dropdown"><a href="#">Menus</a> */}
-                                        {/* <ul className="dropdown-menu">
-                                                <li className="dropdown-submenu"><a href="#">categ1</a>
-                                                    <ul className="dropdown-menu">
-                                                        <li><a href="slider-revolution-slider.html">subcateg1</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul> 
-                                        </li>*/}
 
-                                        {/* <li className="dropdown mega-menu-item"><NavLink to="/recipelist">Recipes</NavLink></li> */}
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div> */}
+
+
+
+
+
+
+                        <div id="mainMenu-trigger">
+                            <button className="lines-button" onClick={toggleMenu}>
+                                <span className="lines"></span>
+                            </button>
+                        </div>
+
+                        {/* Navigation Menu */}
+                        <div id="mainMenu" className={menuOpen ? "menu-open" : ""}>
+                            <div className="container">
+                                <nav>
+                                    <ul id="navLinks" className={menuOpen ? "open" : ""}>
+                                        <li>
+                                            <a id="btn-search" href="#">
+                                                <i className="icon-search"> </i>
+                                            </a>
+                                        </li>
+                                        <li> <NavLink to="/">Home</NavLink></li>
+                                        <li> <NavLink to="/rlist">Restaurants</NavLink></li>
+
+                                        <li> <NavLink to="/menulist">Menus</NavLink></li>
+                                        <li> <NavLink to="/recipelist">Recipes</NavLink></li>
+
+
                                     </ul>
                                 </nav>
                             </div>
                         </div>
+
+
+
+
+
+
                     </div>
                 </div>
             </header>

@@ -683,8 +683,7 @@ function ProfileR() {
                                     </div>
                                     <h3>Restaurant Location</h3>
                                     <p><strong>Restaurant Address:</strong>
-                                        <br /> 795 Folsom Ave, Suite 600
-                                        <br /> San Francisco, CA 94107
+                                        <br />{userInfo?.localisation}
                                     </p>
                                 </div>
                             </div>
